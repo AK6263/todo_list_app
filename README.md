@@ -6,6 +6,7 @@ A Simple Todo List App named Todoey built with Flutter
 
 - Difference between Local and Global State
 - How to Implement it (check tasks list) using void callbacks
+- It is performed by Lifting the StateFul Widget up the Tree 
 
 ## ListView Builder
 
