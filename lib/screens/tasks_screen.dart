@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/tasks_list.dart';
+import 'add_task_screen.dart';
 
 class TasksScreen extends StatelessWidget {
   const TasksScreen({Key? key}) : super(key: key);
@@ -69,6 +70,12 @@ class TasksScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           // Slide in a Window form for new Task
+          showModalBottomSheet(
+            context: context,
+            builder: (BuildContext context) {
+              return AddTaskScreen();
+            },
+          );
         },
         backgroundColor: Colors.lightBlueAccent,
         child: const Icon(Icons.add),
