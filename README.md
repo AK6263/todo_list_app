@@ -6,3 +6,7 @@ A Simple Todo List App named Todoey built with Flutter
 
 - Difference between Local and Global State
 - How to Implement it (check tasks list) using void callbacks
+
+## ListView Builder
+
+- List View Builder is a constructor that builds a List<Widget> on Demand . It builds only the ones visible saving computation time.
