@@ -72,9 +72,16 @@ class TasksScreen extends StatelessWidget {
           // Slide in a Window form for new Task
           showModalBottomSheet(
             context: context,
-            builder: (BuildContext context) {
-              return AddTaskScreen();
-            },
+            // For Smaller Screen Size provides a scroll
+            isScrollControlled: true,
+            builder: (BuildContext context) => SingleChildScrollView(
+              child: Container(
+                padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).viewInsets.bottom,
+                ),
+                child: AddTaskScreen(),
+              ),
+            ),
           );
         },
         backgroundColor: Colors.lightBlueAccent,
