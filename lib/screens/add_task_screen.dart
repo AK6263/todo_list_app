@@ -41,7 +41,9 @@ class AddTaskScreen extends StatelessWidget {
             ),
             FlatButton(
               onPressed: () {
-                addTaskCallBack(newTaskTitle);
+                if (newTaskTitle.isNotEmpty) {
+                  addTaskCallBack(newTaskTitle);
+                }
               },
               child: const Center(child: Text('Add')),
               color: Colors.lightBlueAccent,

@@ -33,8 +33,8 @@ class _TasksScreenState extends State<TasksScreen> {
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const <Widget>[
-                CircleAvatar(
+              children: <Widget>[
+                const CircleAvatar(
                   child: Icon(
                     Icons.list,
                     size: 30.0,
@@ -43,10 +43,10 @@ class _TasksScreenState extends State<TasksScreen> {
                   backgroundColor: Colors.white,
                   radius: 30.0,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10.0,
                 ),
-                Text(
+                const Text(
                   'Todoey',
                   style: TextStyle(
                     color: Colors.white,
@@ -55,8 +55,8 @@ class _TasksScreenState extends State<TasksScreen> {
                   ),
                 ),
                 Text(
-                  '12 Tasks Left',
-                  style: TextStyle(
+                  '${tasks.length} Tasks Left',
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,
                   ),
@@ -98,6 +98,7 @@ class _TasksScreenState extends State<TasksScreen> {
                     setState(() {
                       tasks.add(Task(name: newTaskTitle));
                     });
+                    Navigator.pop(context);
                   },
                 ),
               ),
