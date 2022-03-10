@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/tasks_list.dart';
 
 class TasksScreen extends StatelessWidget {
   const TasksScreen({Key? key}) : super(key: key);
@@ -66,45 +67,11 @@ class TasksScreen extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          // Slide in a Window form for new Task
+        },
         backgroundColor: Colors.lightBlueAccent,
         child: const Icon(Icons.add),
-      ),
-    );
-  }
-}
-
-class TasksList extends StatelessWidget {
-  const TasksList({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      scrollDirection: Axis.vertical,
-      children: <Widget>[
-        TaskTile(),
-        TaskTile(),
-        TaskTile(),
-        TaskTile(),
-      ],
-    );
-  }
-}
-
-class TaskTile extends StatelessWidget {
-  const TaskTile({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      title: const Text('Task 1'),
-      trailing: Checkbox(
-        value: false,
-        onChanged: (bool? value) {},
       ),
     );
   }
