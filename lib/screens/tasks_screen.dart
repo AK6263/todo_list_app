@@ -52,6 +52,7 @@ class TasksScreen extends StatelessWidget {
           ),
           Expanded(
             child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -59,6 +60,7 @@ class TasksScreen extends StatelessWidget {
                   topRight: Radius.circular(20.0),
                 ),
               ),
+              child: TasksList(),
             ),
           ),
         ],
@@ -67,6 +69,42 @@ class TasksScreen extends StatelessWidget {
         onPressed: () {},
         backgroundColor: Colors.lightBlueAccent,
         child: const Icon(Icons.add),
+      ),
+    );
+  }
+}
+
+class TasksList extends StatelessWidget {
+  const TasksList({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      scrollDirection: Axis.vertical,
+      children: <Widget>[
+        TaskTile(),
+        TaskTile(),
+        TaskTile(),
+        TaskTile(),
+      ],
+    );
+  }
+}
+
+class TaskTile extends StatelessWidget {
+  const TaskTile({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: const Text('Task 1'),
+      trailing: Checkbox(
+        value: false,
+        onChanged: (bool? value) {},
       ),
     );
   }
