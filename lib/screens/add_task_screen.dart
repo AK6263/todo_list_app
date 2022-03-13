@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list_app/models/task.dart';
+import 'package:provider/provider.dart';
+import '../models/task_data.dart';
 
 class AddTaskScreen extends StatelessWidget {
-  final void Function(String) addTaskCallBack;
   const AddTaskScreen({
     Key? key,
-    required this.addTaskCallBack,
   }) : super(key: key);
 
   @override
@@ -41,9 +42,10 @@ class AddTaskScreen extends StatelessWidget {
             ),
             FlatButton(
               onPressed: () {
-                if (newTaskTitle.isNotEmpty) {
-                  addTaskCallBack(newTaskTitle);
-                }
+                // ! Had to add listen: false because it is wasteful to keep it true
+                Provider.of<TaskData>(context, listen: false)
+                    .addTask(newTaskTitle);
+                Navigator.pop(context);
               },
               child: const Center(child: Text('Add')),
               color: Colors.lightBlueAccent,
