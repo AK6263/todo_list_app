@@ -13,22 +13,26 @@ class TaskData extends ChangeNotifier {
     return _tasks.length;
   }
 
+  // Check tasks list without modifying the list
+  UnmodifiableListView<Task> get tasks {
+    return UnmodifiableListView(_tasks);
+  }
+
+  // Add a New Task
   void addTask(String newTasktitle) {
     final task = Task(name: newTasktitle);
     _tasks.add(task);
     notifyListeners();
   }
 
-  UnmodifiableListView<Task> get tasks {
-    return UnmodifiableListView(_tasks);
-  }
-
+  // Update the Task or check or uncheck
   void updateTask(Task task) {
     task.toggleDone();
     // ! notifyListeners updates the values for all listeners
     notifyListeners();
   }
 
+  // Delete the Tasks
   void deleteTask(Task task) {
     _tasks.remove(task);
     notifyListeners();
