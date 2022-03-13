@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../widgets/tasks_list.dart';
 import 'add_task_screen.dart';
 import '../models/task.dart';
+import 'package:provider/provider.dart';
+import '../models/task_data.dart';
 
 class TasksScreen extends StatefulWidget {
   const TasksScreen({Key? key}) : super(key: key);
@@ -11,12 +13,6 @@ class TasksScreen extends StatefulWidget {
 }
 
 class _TasksScreenState extends State<TasksScreen> {
-  List<Task> tasks = [
-    Task(name: 'Task 1'),
-    Task(name: 'Task 2'),
-    Task(name: 'Task 3'),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +51,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   ),
                 ),
                 Text(
-                  '${tasks.length} Tasks Left',
+                  '${Provider.of<TaskData>(context).tasks.length} Tasks Left',
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,
@@ -74,9 +70,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   topRight: Radius.circular(20.0),
                 ),
               ),
-              child: TasksList(
-                tasks: tasks,
-              ),
+              child: TasksList(),
             ),
           ),
         ],
@@ -95,9 +89,9 @@ class _TasksScreenState extends State<TasksScreen> {
                 ),
                 child: AddTaskScreen(
                   addTaskCallBack: (String newTaskTitle) {
-                    setState(() {
-                      tasks.add(Task(name: newTaskTitle));
-                    });
+                    // setState(() {
+                    //   tasks.add(Task(name: newTaskTitle));
+                    // });
                     Navigator.pop(context);
                   },
                 ),
