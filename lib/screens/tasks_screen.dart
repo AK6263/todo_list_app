@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
 import '../widgets/tasks_list.dart';
 import 'add_task_screen.dart';
-import '../models/task.dart';
 import 'package:provider/provider.dart';
 import '../models/task_data.dart';
 
-class TasksScreen extends StatefulWidget {
+class TasksScreen extends StatelessWidget {
   const TasksScreen({Key? key}) : super(key: key);
 
-  @override
-  State<TasksScreen> createState() => _TasksScreenState();
-}
-
-class _TasksScreenState extends State<TasksScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +45,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   ),
                 ),
                 Text(
-                  '${Provider.of<TaskData>(context).tasks.length} Tasks Left',
+                  '${Provider.of<TaskData>(context).taskCount} Tasks Left',
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,
